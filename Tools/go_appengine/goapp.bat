@@ -9,6 +9,9 @@ set GOARCH=
 set GOBIN=
 set GOOS=
 
+python.exe -V >nul 2>&1
+if errorlevel 1 set PATH=%PATH%;"%~dp0\..\Python 2.7"
+
 :: Note that due to the nature of BAT files, if the optional
 :: "--dev_appserver Z:\path\to\dev_appserver.py" arguments are
 :: provided, they must appear exactly as the first and second
