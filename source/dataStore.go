@@ -15,7 +15,7 @@ type SharedPreset struct {
 		ShareId string
 		Author string
 		PresetName string
-		Preset string		
+		Preset string `datastore:",noindex"`
 }
 
 func init() {		
@@ -160,6 +160,9 @@ func checkIsNewOrOwner(r *http.Request, presetName, shareId, ownerId string) boo
 }
 
 func writeJson(w http.ResponseWriter, r *http.Request, value interface{}) {
+
+  w.Header().Set("Access-Control-Allow-Origin", "https://57439.afasinsite.nl")
+  
 	cb := r.FormValue("callback")
 	
 	if &value == nil {
